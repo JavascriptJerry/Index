@@ -1,28 +1,31 @@
 const ball = document.getElementById("ball");
 document.addEventListener("keydown", handleKeyPress);
-let position = 0;
+
+var posX = 0;
+var posY = 0;
 
 function handleKeyPress(e) {
   if (e.code === "ArrowLeft") {
-    position = position - 1;
+    posX = posX - 5;
+    ball.style.left = `${posX}px`;
   }
   if (e.code === "ArrowRight") {
-    position = position + 1;
-  }
-  if (position < 0) {
-    position = 0;
+    posX = posX + 5;
+    ball.style.left = `${posX}px`;
   }
   if (e.code === "ArrowUp") {
-    position = position + 1;
+    posY = posY - 5;
+    ball.style.top = `${posY}px`;
   }
   if (e.code === "ArrowDown") {
-    position = position - 1;
+    posY = posY + 5;
+    ball.style.top = `${posY}px`;
   }
-  if (position < 0) {
-    position = 0;
-  }
+  console.log("Position X:" + posX);
+  console.log("Position Y:" + posY);
 }
-function refresh() {
-  ball.style.left = position + "px";
-  ball.style.top = position + "xp";
-}
+
+// let firstNumber = prompt("Pick a number");
+// let secondNumber = prompt("Pick another number");
+// let sum = firstNumber + secondNumber;
+// alert(sum);
